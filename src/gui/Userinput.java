@@ -63,7 +63,10 @@ public class Userinput extends JFrame implements ActionListener{
 	Destination[] sel2 = {};
 	JComboBox<Destination> zielort = new JComboBox<Destination>(sel2);
 	
-	String[] sel3 = {};
+	String[] sel3 = {for(int i=1; i<=10; i++){
+		Integer.toString(i);
+		}
+	};
 	JComboBox<String> anzperson = new JComboBox<String>(sel3);
 	
 	
@@ -180,7 +183,7 @@ public class Userinput extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()== berechnen){
 			if(radiogroup.getSelection().getActionCommand().equals("Economy")){
-				
+				Economy eco = new Economy(startort, zielort, anzperson., hinrueckButton.isSelected());
 			}else if(radiogroup.getSelection().getActionCommand().equals("Business")){
 				
 			}else{
