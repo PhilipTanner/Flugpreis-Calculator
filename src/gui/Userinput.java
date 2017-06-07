@@ -18,6 +18,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import dto.Destination;
+import logic.Economy;
+import logic.Flug;
+
 public class Userinput extends JFrame implements ActionListener{
 	
 	//Labels
@@ -25,7 +29,7 @@ public class Userinput extends JFrame implements ActionListener{
 	JLabel von = new JLabel ("Von:");
 	JLabel nach = new JLabel ("Nach:");
 	JLabel person = new JLabel ("Personen");
-	JLabel hinrueck = new JLabel ("Hin- und Rückflug");
+	JLabel hinrueck = new JLabel ("Hin- und Rï¿½ckflug");
 	JLabel economy = new JLabel ("Economy");
 	JLabel business = new JLabel ("Business");
 	JLabel firstclass = new JLabel ("First Class");
@@ -41,7 +45,7 @@ public class Userinput extends JFrame implements ActionListener{
 	//Button (OK)
 	JButton berechnen = new JButton("OK");
 	
-	//Checkbox für Hin- und Rückflug Option
+	//Checkbox fï¿½r Hin- und Rï¿½ckflug Option
 	JCheckBox hinrueckButton = new JCheckBox("");
 	
 	JRadioButton economyButton = new JRadioButton("");
@@ -49,17 +53,17 @@ public class Userinput extends JFrame implements ActionListener{
 	JRadioButton firstclassButton = new JRadioButton("");
 	ButtonGroup radiogroup = new ButtonGroup();
 	
-	//Schriftgrösse für das Titel
+	//Schriftgrï¿½sse fï¿½r das Titel
 	Font myFont = new Font("San-Serif", Font.BOLD, 35);
 	
 	//Dropdowns
-	String[] sel1 = {"Basel"};
-	JComboBox<String> startort = new JComboBox<String>(sel1);
+	Destination[] sel1 = {};
+	JComboBox<Destination> startort = new JComboBox<Destination>(sel1);
 	
-	String[] sel2 = {"","New York", "London", "Tokyo","Dubai","Rom"};
-	JComboBox<String> zielort = new JComboBox<String>(sel2);
+	Destination[] sel2 = {};
+	JComboBox<Destination> zielort = new JComboBox<Destination>(sel2);
 	
-	String[] sel3 = {"1","2","3","4","5","6","7","8","9","10"};
+	String[] sel3 = {};
 	JComboBox<String> anzperson = new JComboBox<String>(sel3);
 	
 	
@@ -67,7 +71,7 @@ public class Userinput extends JFrame implements ActionListener{
 	//Panels
 	JPanel main = new JPanel();
 	JPanel titel = new JPanel();
-	JPanel top = new JPanel(); 		// von, nach, Anzahlpersonen, Hin- und Rückflug
+	JPanel top = new JPanel(); 		// von, nach, Anzahlpersonen, Hin- und Rï¿½ckflug
 	JPanel bottom = new JPanel();	// 
 	JPanel core = new JPanel();
 	
@@ -164,22 +168,27 @@ public class Userinput extends JFrame implements ActionListener{
 	setVisible(true);
 	setSize(600,500);
 	
-	economyButton.addActionListener(this);
-	businessButton.addActionListener(this);
-	firstclassButton.addActionListener(this);
+	economyButton.setActionCommand("Economy");
+	businessButton.setActionCommand("Business");
+	firstclassButton.setActionCommand("First");
 	berechnen.addActionListener(this);
 
 	
 	}
-	
-	public static void main(String[] args) {
-		Userinput gui = new Userinput();
-	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()== berechnen){
+			if(radiogroup.getSelection().getActionCommand().equals("Economy")){
+				
+			}else if(radiogroup.getSelection().getActionCommand().equals("Business")){
+				
+			}else{
+				
+			}
+			
+			
+		}
 	}
 
 }
