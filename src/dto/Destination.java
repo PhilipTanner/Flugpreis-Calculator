@@ -3,8 +3,8 @@ package dto;
 public class Destination {
 	
 	private String name;
-	private double coordinateAltitude;
-	private double coordinateLatitude;
+	private double latitude;
+	private double longitude;
 	
 	public Destination(){
 		
@@ -18,21 +18,23 @@ public class Destination {
 		this.name = name;
 	}
 
-	public double getCoordinateAltitude() {
-		return coordinateAltitude;
+	public double getLatitude() {
+		return latitude;
 	}
 
-	public void setCoordinateAltitude(double coordinateAltitude) {
-		this.coordinateAltitude = coordinateAltitude;
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
-	public double getCoordinateLatitude() {
-		return coordinateLatitude;
+	public double getLongitude() {
+		return longitude;
 	}
 
-	public void setCoordinateLatitude(double coordinateLatitude) {
-		this.coordinateLatitude = coordinateLatitude;
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
+
+	
 	
 
 }
