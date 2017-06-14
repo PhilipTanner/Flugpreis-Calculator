@@ -8,8 +8,10 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -23,6 +25,7 @@ import logic.Economy;
 import logic.Flug;
 
 public class Userinput extends JFrame implements ActionListener{
+	
 	
 	//Labels
 	JLabel name = new JLabel ("Flugpreisabfrage");
@@ -57,17 +60,11 @@ public class Userinput extends JFrame implements ActionListener{
 	Font myFont = new Font("San-Serif", Font.BOLD, 35);
 	
 	//Dropdowns
-	Destination[] sel1 = {};
-	JComboBox<Destination> startort = new JComboBox<Destination>(sel1);
+	JComboBox<Destination> startort = new JComboBox<Destination>();
 	
-	Destination[] sel2 = {};
-	JComboBox<Destination> zielort = new JComboBox<Destination>(sel2);
-	
-	String[] sel3 = {for(int i=1; i<=10; i++){
-		Integer.toString(i);
-		}
-	};
-	JComboBox<String> anzperson = new JComboBox<String>(sel3);
+	JComboBox<Destination> zielort = new JComboBox<Destination>();
+
+	JComboBox<String> anzperson = new JComboBox<String>();
 	
 	
 
@@ -165,6 +162,12 @@ public class Userinput extends JFrame implements ActionListener{
 	firstclassButton.setMnemonic(KeyEvent.VK_B);
 	firstclassButton.setActionCommand("");
 	
+	ArrayList<Destination> sel1 = new ArrayList<Destination>();
+	sel1.add(new Destination("London",10.55, 30.33));
+	
+	
+	Destination[] test = new Destination[sel1.size()];
+	startort.setModel(new DefaultComboBoxModel<Destination>(sel1.toArray(test)));
 	
 	
 	setTitle("Fluglinien");
@@ -181,9 +184,10 @@ public class Userinput extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()== berechnen){
+		/*if(e.getSource()== berechnen){
+			anzperson = anzperson.getSelectedItem();
 			if(radiogroup.getSelection().getActionCommand().equals("Economy")){
-				Economy eco = new Economy(startort, zielort, anzperson., hinrueckButton.isSelected());
+				Economy eco = new Economy(startort.getSelectedItem(), zielort.getSelectedItem(), anzperson.getSelectedItem(), hinrueckButton);
 			}else if(radiogroup.getSelection().getActionCommand().equals("Business")){
 				
 			}else{
@@ -191,7 +195,7 @@ public class Userinput extends JFrame implements ActionListener{
 			}
 			
 			
-		}
+		}*/
 	}
 
 }

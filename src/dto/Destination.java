@@ -10,6 +10,18 @@ public class Destination {
 		
 	}
 
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	public Destination(String name, double latitude, double longitude) {
+		super();
+		this.name = name;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+
 	public String getName() {
 		return name;
 	}
