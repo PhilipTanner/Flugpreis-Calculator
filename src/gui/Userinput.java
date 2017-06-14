@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -21,8 +22,10 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import dto.Destination;
+import logic.Business;
 import logic.DataBridge;
 import logic.Economy;
+import logic.First;
 import logic.Flug;
 
 public class Userinput extends JFrame implements ActionListener{
@@ -66,7 +69,9 @@ public class Userinput extends JFrame implements ActionListener{
 	
 	JComboBox<Destination> zielort = new JComboBox<Destination>();
 
-	JComboBox<String> anzperson = new JComboBox<String>();
+	Integer[] personen = new Integer[10];
+	JComboBox<Integer> anzperson = new JComboBox<Integer>();
+	
 	
 	
 
@@ -168,6 +173,12 @@ public class Userinput extends JFrame implements ActionListener{
 	startort.setModel(new DefaultComboBoxModel<Destination>(db.getDestinations().toArray(sel1)));
 	zielort.setModel(new DefaultComboBoxModel<Destination>(db.getDestinations().toArray(sel1)));
 	
+	for(int i=0; i<10; i++){
+		personen[i] = i+1;
+	}
+	anzperson.setModel(new DefaultComboBoxModel<Integer>(personen));
+	
+	
 	setTitle("Fluglinien");
 	setVisible(true);
 	setSize(600,500);
@@ -183,12 +194,17 @@ public class Userinput extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()== berechnen){
+			Destination deststart = startort.getItemAt(startort.getSelectedIndex());
+			Destination destziel = zielort.getItemAt(zielort.getSelectedIndex());
+			int persons = anzperson.getItemAt(anzperson.getSelectedIndex());
+			boolean returnFlight = hinrueckButton.isSelected();
+			
 			if(radiogroup.getSelection().getActionCommand().equals("Economy")){
-				Economy eco = new Economy(startort.getSelectedItem(), zielort.getSelectedItem(), anzperson.getSelectedItem(), hinrueckButton);
+				Economy eco = new Economy(deststart, destziel,persons, returnFlight);
 			}else if(radiogroup.getSelection().getActionCommand().equals("Business")){
-				
+				Business busi = new Business(deststart, destziel,persons, returnFlight);
 			}else{
-				
+				 First frst = new First(deststart, destziel,persons, returnFlight);
 			}
 			
 			
