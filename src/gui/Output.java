@@ -105,7 +105,6 @@ public class Output extends JFrame implements ActionListener{
 	setVisible(true);
 	setSize(600,500);
 
-	
 	}
 	
 	public static void main(String[] args) {
