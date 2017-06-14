@@ -21,12 +21,13 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import dto.Destination;
+import logic.DataBridge;
 import logic.Economy;
 import logic.Flug;
 
 public class Userinput extends JFrame implements ActionListener{
 	
-	
+	DataBridge db = new DataBridge();
 	//Labels
 	JLabel name = new JLabel ("Flugpreisabfrage");
 	JLabel von = new JLabel ("Von:");
@@ -162,12 +163,8 @@ public class Userinput extends JFrame implements ActionListener{
 	firstclassButton.setMnemonic(KeyEvent.VK_B);
 	firstclassButton.setActionCommand("");
 	
-	ArrayList<Destination> sel1 = new ArrayList<Destination>();
-	sel1.add(new Destination("London",10.55, 30.33));
-	
-	
-	Destination[] test = new Destination[sel1.size()];
-	startort.setModel(new DefaultComboBoxModel<Destination>(sel1.toArray(test)));
+	Destination[] test = new Destination[db.getDestinations().size()];
+	startort.setModel(new DefaultComboBoxModel<Destination>(db.getDestinations().toArray(test)));
 	
 	
 	setTitle("Fluglinien");

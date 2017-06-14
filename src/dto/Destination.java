@@ -5,10 +5,6 @@ public class Destination {
 	private String name;
 	private double latitude;
 	private double longitude;
-	
-	public Destination(String name, double latitude, double longitude){
-		
-	}
 
 	@Override
 	public String toString() {
