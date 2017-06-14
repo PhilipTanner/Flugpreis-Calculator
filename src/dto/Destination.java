@@ -6,7 +6,7 @@ public class Destination {
 	private double latitude;
 	private double longitude;
 	
-	public Destination(){
+	public Destination(String name, double latitude, double longitude){
 		
 	}
 
@@ -34,7 +34,5 @@ public class Destination {
 		this.longitude = longitude;
 	}
 
-	
-	
 
 }
