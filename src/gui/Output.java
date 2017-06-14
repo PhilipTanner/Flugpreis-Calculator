@@ -11,6 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import logic.Economy;
+import logic.Flug;
+
 public class Output extends JFrame implements ActionListener{
 	
 	//Labels
@@ -21,7 +24,7 @@ public class Output extends JFrame implements ActionListener{
 	JLabel zielort = new JLabel("test");
 	JLabel person = new JLabel ("Personen:");
 	JLabel anzperson = new JLabel("1");
-	JLabel hinrueck = new JLabel ("Hin- und Rückflug:");
+	JLabel hinrueck = new JLabel ("Hin- und Rï¿½ckflug:");
 	JLabel hinrueckButton = new JLabel ("ja");
 	JLabel preis = new JLabel ("Preis:");
 	JLabel preisausgabe = new JLabel("25");
@@ -33,7 +36,7 @@ public class Output extends JFrame implements ActionListener{
 	JLabel ausgewaehlteklasse = new JLabel("economy");
 
 	
-	//Schriftgrösse für das Titel
+	//Schriftgrï¿½sse fï¿½r das Titel
 	Font nameFont = new Font("San-Serif", Font.BOLD, 35);
 	Font preisFont = new Font("San-Serif", Font.BOLD, 15);
 	
@@ -42,6 +45,7 @@ public class Output extends JFrame implements ActionListener{
 	JPanel main = new JPanel();
 	JPanel titel = new JPanel();
 	JPanel core = new JPanel();
+	
 	
 	public Output(){
 	
@@ -63,7 +67,6 @@ public class Output extends JFrame implements ActionListener{
 	getContentPane().setBackground(Color.WHITE);
 	core.setBackground(Color.WHITE);
 	titel.setBackground(Color.WHITE);
-	
 	
 	main.add(titel);
 	main.add(core);

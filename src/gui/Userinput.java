@@ -37,7 +37,7 @@ public class Userinput extends JFrame implements ActionListener{
 	JLabel von = new JLabel ("Von:");
 	JLabel nach = new JLabel ("Nach:");
 	JLabel person = new JLabel ("Personen");
-	JLabel hinrueck = new JLabel ("Hin- und R�ckflug");
+	JLabel hinrueck = new JLabel ("Hin- und Rueckflug");
 	JLabel economy = new JLabel ("Economy");
 	JLabel business = new JLabel ("Business");
 	JLabel firstclass = new JLabel ("First Class");

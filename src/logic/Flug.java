@@ -1,9 +1,6 @@
 package logic;
 
 import dto.Destination;
-import java.util.*;
-import java.lang.*;
-import java.io.*;
 
 public abstract class Flug {
 	
@@ -11,7 +8,7 @@ public abstract class Flug {
 	private Destination destinationTo;
 	protected int persons;
 	protected boolean returnFlight;
-	protected double distance;
+	protected double distance = calcDistance();
 	protected double price;
 	
 	public Flug(Destination destinationFrom, Destination destinationTo, int persons, boolean returnFlight){
