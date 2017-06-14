@@ -193,6 +193,10 @@ public class Userinput extends JFrame implements ActionListener{
 			
 			
 		}*/
+		
+		if(e.getSource()== berechnen){
+		     Object des = startort.getSelectedItem();
+		}
 	}
 
 }
