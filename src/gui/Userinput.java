@@ -8,8 +8,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -206,8 +205,6 @@ public class Userinput extends JFrame implements ActionListener{
 			}else{
 				 First frst = new First(deststart, destziel,persons, returnFlight);
 			}
-			
-			
 		}
 	}
 
