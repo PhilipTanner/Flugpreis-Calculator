@@ -28,6 +28,7 @@ import logic.Flug;
 public class Userinput extends JFrame implements ActionListener{
 	
 	DataBridge db = new DataBridge();
+	
 	//Labels
 	JLabel name = new JLabel ("Flugpreisabfrage");
 	JLabel von = new JLabel ("Von:");
@@ -163,9 +164,9 @@ public class Userinput extends JFrame implements ActionListener{
 	firstclassButton.setMnemonic(KeyEvent.VK_B);
 	firstclassButton.setActionCommand("");
 	
-	Destination[] test = new Destination[db.getDestinations().size()];
-	startort.setModel(new DefaultComboBoxModel<Destination>(db.getDestinations().toArray(test)));
-	
+	Destination[] sel1 = new Destination[db.getDestinations().size()];
+	startort.setModel(new DefaultComboBoxModel<Destination>(db.getDestinations().toArray(sel1)));
+	zielort.setModel(new DefaultComboBoxModel<Destination>(db.getDestinations().toArray(sel1)));
 	
 	setTitle("Fluglinien");
 	setVisible(true);
@@ -181,8 +182,7 @@ public class Userinput extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		/*if(e.getSource()== berechnen){
-			anzperson = anzperson.getSelectedItem();
+		if(e.getSource()== berechnen){
 			if(radiogroup.getSelection().getActionCommand().equals("Economy")){
 				Economy eco = new Economy(startort.getSelectedItem(), zielort.getSelectedItem(), anzperson.getSelectedItem(), hinrueckButton);
 			}else if(radiogroup.getSelection().getActionCommand().equals("Business")){
@@ -192,7 +192,7 @@ public class Userinput extends JFrame implements ActionListener{
 			}
 			
 			
-		}*/
+		}
 	}
 
 }
