@@ -1,7 +1,7 @@
 package dto;
 
 public class Destination {
-	
+
 	private String name;
 	private double latitude;
 	private double longitude;
@@ -41,6 +41,5 @@ public class Destination {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-
 
 }

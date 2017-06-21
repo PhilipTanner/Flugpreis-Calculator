@@ -11,10 +11,10 @@ public class Business extends Flug {
 	@Override
 	public double calcPrice() {
 		price = distance * 0.14;
-		if(returnFlight == true){
+		if (returnFlight == true) {
 			price = price * 2;
 		}
-		price = price * persons; 
+		price = price * persons;
 		return price;
 	}
 

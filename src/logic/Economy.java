@@ -6,16 +6,16 @@ public class Economy extends Flug {
 
 	public Economy(Destination destinationFrom, Destination destinationTo, int persons, boolean returnFlight) {
 		super(destinationFrom, destinationTo, persons, returnFlight);
-	
+
 	}
 
 	@Override
 	public double calcPrice() {
 		price = distance * 0.08;
-		if(returnFlight == true){
+		if (returnFlight == true) {
 			price = price * 2;
 		}
-		price = price * persons; 
+		price = price * persons;
 		return price;
 	}
 
