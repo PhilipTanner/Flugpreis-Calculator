@@ -6,12 +6,11 @@ public class Business extends Flug {
 
 	public Business(Destination destinationFrom, Destination destinationTo, int persons, boolean returnFlight) {
 		super(destinationFrom, destinationTo, persons, returnFlight);
-
 	}
 
 	@Override
 	public double calcPrice() {
-		price = distance * 120;
+		price = distance * 0.14;
 		if(returnFlight == true){
 			price = price * 2;
 		}

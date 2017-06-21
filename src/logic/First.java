@@ -11,7 +11,7 @@ public class First extends Flug {
 
 	@Override
 	public double calcPrice() {
-		price = distance * 150;
+		price = distance * 0.25;
 		if(returnFlight == true){
 			price = price * 2;
 		}

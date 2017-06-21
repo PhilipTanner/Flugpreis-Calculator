@@ -11,7 +11,7 @@ public class Economy extends Flug {
 
 	@Override
 	public double calcPrice() {
-		price = distance * 100;
+		price = distance * 0.08;
 		if(returnFlight == true){
 			price = price * 2;
 		}

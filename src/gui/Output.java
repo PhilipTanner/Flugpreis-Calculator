@@ -11,7 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import dto.Destination;
+import logic.Business;
 import logic.Economy;
+import logic.First;
 import logic.Flug;
 
 public class Output extends JFrame implements ActionListener{
@@ -19,21 +22,21 @@ public class Output extends JFrame implements ActionListener{
 	//Labels
 	JLabel name = new JLabel ("Flugpreisabfrage");
 	JLabel von = new JLabel ("Von:");
-	JLabel startort = new JLabel("test");
+	JLabel startort = new JLabel("");
 	JLabel nach = new JLabel ("Nach:");
-	JLabel zielort = new JLabel("test");
+	JLabel zielort = new JLabel("");
 	JLabel person = new JLabel ("Personen:");
-	JLabel anzperson = new JLabel("1");
-	JLabel hinrueck = new JLabel ("Hin- und R�ckflug:");
-	JLabel hinrueckButton = new JLabel ("ja");
+	JLabel anzperson = new JLabel("");
+	JLabel hinrueck = new JLabel ("Hin- und Rückflug:");
+	JLabel hinrueckButton = new JLabel ("");
 	JLabel preis = new JLabel ("Preis:");
-	JLabel preisausgabe = new JLabel("25");
+	JLabel preisausgabe = new JLabel("");
 	JLabel east = new JLabel("");
 	JLabel west = new JLabel("");
 	JLabel north = new JLabel("");
 	JLabel south = new JLabel("");
 	JLabel klasse = new JLabel("Klasse:");
-	JLabel ausgewaehlteklasse = new JLabel("economy");
+	JLabel ausgewaehlteklasse = new JLabel("");
 
 	
 	//Schriftgr�sse f�r das Titel
@@ -47,7 +50,7 @@ public class Output extends JFrame implements ActionListener{
 	JPanel core = new JPanel();
 	
 	
-	public Output(){
+	public Output(Destination deststart, Destination destziel,int persons, boolean returnFlight, String selectedclass){
 	
 	setLayout(new BorderLayout());
 	
@@ -99,20 +102,41 @@ public class Output extends JFrame implements ActionListener{
 	add(titel, BorderLayout.NORTH);
 	add(core, BorderLayout.CENTER);
 	
+	startort.setText(deststart.getName());
+	zielort.setText(destziel.getName());
+	anzperson.setText(String.valueOf(persons));
+	
+	if(returnFlight == false){
+		hinrueckButton.setText("NEIN");
+	}else if(returnFlight == true){
+		hinrueckButton.setText("JA");
+	}
+	
+	if(selectedclass.equals("Economy")){
+		ausgewaehlteklasse.setText("Economy");
+		Flug eco = new Economy(deststart, destziel,persons, returnFlight);
+		preisausgabe.setText(String.valueOf(Math.round(100.0 * eco.calcPrice() / 100.0))+ " CHF");
+	}else if(selectedclass.equals("Business")){
+		ausgewaehlteklasse.setText("Business");
+		Flug busi = new Business(deststart, destziel,persons, returnFlight);
+		preisausgabe.setText(String.valueOf(Math.round(100.0 * busi.calcPrice() / 100.0))+ " CHF");
+	}else{
+		ausgewaehlteklasse.setText("First");
+		Flug frst = new First(deststart, destziel,persons, returnFlight);
+		preisausgabe.setText(String.valueOf(Math.round(100.0 * frst.calcPrice() / 100.0))+ " CHF");
+	}
+	
 	
 	
 	setTitle("Fluglinien");
 	setVisible(true);
 	setSize(600,500);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-	}
-	
-	public static void main(String[] args) {
-		Output op = new Output();
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

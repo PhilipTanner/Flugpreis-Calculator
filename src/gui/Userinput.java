@@ -181,6 +181,7 @@ public class Userinput extends JFrame implements ActionListener{
 	setTitle("Fluglinien");
 	setVisible(true);
 	setSize(600,500);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	economyButton.setActionCommand("Economy");
 	businessButton.setActionCommand("Business");
@@ -192,7 +193,7 @@ public class Userinput extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()== berechnen){
+		/*if(e.getSource()== berechnen){
 			Destination deststart = startort.getItemAt(startort.getSelectedIndex());
 			Destination destziel = zielort.getItemAt(zielort.getSelectedIndex());
 			int persons = anzperson.getItemAt(anzperson.getSelectedIndex());
@@ -205,7 +206,19 @@ public class Userinput extends JFrame implements ActionListener{
 			}else{
 				 First frst = new First(deststart, destziel,persons, returnFlight);
 			}
+		}*/
+		if(e.getSource()== berechnen){
+			Destination deststart = startort.getItemAt(startort.getSelectedIndex());
+			Destination destziel = zielort.getItemAt(zielort.getSelectedIndex());
+			int persons = anzperson.getItemAt(anzperson.getSelectedIndex());
+			boolean returnFlight = hinrueckButton.isSelected();
+			String klasse = radiogroup.getSelection().getActionCommand();
+			
+			Output op = new Output(deststart, destziel,persons, returnFlight, klasse);
 		}
+	
+	
+	
 	}
 
 }
