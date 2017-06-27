@@ -39,7 +39,7 @@ public class Output extends JFrame implements ActionListener {
 	JLabel ausgewaehlteklasse = new JLabel("");
 
 	// Schriftgr�sse f�r das Titel
-	Font nameFont = new Font("San-Serif", Font.BOLD, 35);
+	Font nameFont = new Font("San-Serif", Font.BOLD, 30);
 	Font preisFont = new Font("San-Serif", Font.BOLD, 15);
 
 	// Panels

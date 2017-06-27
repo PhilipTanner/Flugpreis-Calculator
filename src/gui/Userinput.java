@@ -55,7 +55,7 @@ public class Userinput extends JFrame implements ActionListener {
 	ButtonGroup radiogroup = new ButtonGroup();
 
 	// Schriftgr�sse f�r das Titel
-	Font myFont = new Font("San-Serif", Font.BOLD, 35);
+	Font myFont = new Font("San-Serif", Font.BOLD, 30);
 
 	// Dropdowns
 	JComboBox<Destination> startort = new JComboBox<Destination>();
